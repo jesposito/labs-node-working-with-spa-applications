@@ -24,6 +24,9 @@
     "35500": { "label": "API" },
     "38500": { "label": "SPA App" }
   },
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
   "shutdownAction": "stopCompose",
   "postStartCommand": "npm install -g npm@latest && npm run init",
   "postAttachCommand": "for i in 1 2 3 4 5; do gh codespace ports visibility 35500:public -c \"$CODESPACE_NAME\" && exit 0; sleep 2; done; echo 'WARNING: failed to make API port 35500 public; the SPA cross-origin call to the API will fail with a CORS preflight 401. Right-click port 35500 in the Ports panel and set visibility to Public.' >&2",
