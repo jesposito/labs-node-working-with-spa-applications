@@ -20,8 +20,13 @@
     35500, //API
     38500, //SPA App
   ],
+  "portsAttributes": {
+    "35500": { "label": "API" },
+    "38500": { "label": "SPA App" }
+  },
   "shutdownAction": "stopCompose",
   "postStartCommand": "npm install -g npm@latest && npm run init",
+  "postAttachCommand": "gh codespace ports visibility 35500:public 38500:public -c $CODESPACE_NAME || true",
   "waitFor": "postStartCommand",
   "remoteUser": "node"
 }
